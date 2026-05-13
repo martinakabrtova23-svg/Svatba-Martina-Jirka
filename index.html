@@ -9,33 +9,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
     :root {
-      --cream: #f8f1e8;
-      --beige: #eadbcb;
-      --sand: #d4b89c;
-      --latte: #b99577;
-      --brown: #6b4f3b;
-      --dark: #332820;
-      --white-soft: #fffaf4;
+      --cream: #f7efe4;
+      --ivory: #fffaf2;
+      --beige: #eadbc9;
+      --sand: #d2b18e;
+      --latte: #a77b58;
+      --brown: #6e4a32;
+      --dark: #2f241d;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(212, 184, 156, 0.34), transparent 34%),
-        linear-gradient(180deg, #fbf6ef 0%, var(--cream) 45%, #efe1d3 100%);
+      background: linear-gradient(180deg, #fff8ef 0%, #f6ecdf 45%, #ead7c3 100%);
       color: var(--dark);
     }
 
-    h1, h2, h3, .serif {
-      font-family: 'Cormorant Garamond', serif;
-    }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
 
     .hero-img {
       background-image: url('./hero.jpg');
@@ -43,49 +37,24 @@
       background-position: center;
     }
 
-    .glass-nav {
-      background: rgba(255, 250, 244, 0.82);
-      border-bottom: 1px solid rgba(107, 79, 59, 0.13);
+    .nav-bg {
+      background: rgba(239, 224, 207, 0.88);
       backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(110, 74, 50, 0.12);
     }
 
-    .section-card {
-      background: rgba(255, 250, 244, 0.78);
-      border: 1px solid rgba(107, 79, 59, 0.10);
-      box-shadow: 0 18px 45px rgba(107, 79, 59, 0.10);
-      border-radius: 32px;
-    }
-
-    .mini-card {
-      background: rgba(255, 250, 244, 0.92);
-      border: 1px solid rgba(107, 79, 59, 0.10);
-      box-shadow: 0 12px 30px rgba(107, 79, 59, 0.08);
-      border-radius: 24px;
-    }
-
-    .btn-primary {
-      background: var(--brown);
-      color: white;
-      box-shadow: 0 10px 25px rgba(107, 79, 59, 0.24);
-    }
-
-    .btn-primary:hover,
-    .btn-light:hover {
-      transform: translateY(-1px);
-      opacity: 0.94;
-    }
-
-    .btn-light {
-      background: rgba(255, 250, 244, 0.94);
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
       color: var(--brown);
-      box-shadow: 0 10px 25px rgba(107, 79, 59, 0.16);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .ornament {
       width: 72px;
       height: 1px;
-      background: var(--latte);
-      margin: 14px auto 0;
+      background: var(--sand);
+      margin: 12px auto 0;
       position: relative;
     }
 
@@ -97,199 +66,217 @@
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: var(--latte);
+      background: var(--sand);
     }
 
     .ornament::before { left: -10px; }
     .ornament::after { right: -10px; }
 
-    .timeline-item {
-      position: relative;
+    .soft-card {
+      background: rgba(255, 250, 242, 0.72);
+      border: 1px solid rgba(110, 74, 50, 0.08);
+      box-shadow: 0 18px 50px rgba(110, 74, 50, 0.10);
+      border-radius: 22px;
     }
 
-    .timeline-time {
-      color: var(--brown);
-      background: #f3e7da;
-      border: 1px solid rgba(107, 79, 59, 0.12);
+    .btn-brown {
+      background: var(--brown);
+      color: white;
+      box-shadow: 0 12px 26px rgba(110, 74, 50, 0.24);
+      transition: 0.2s ease;
     }
 
-    .link-soft {
+    .btn-brown:hover,
+    .btn-light:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .btn-light {
+      background: rgba(255, 250, 242, 0.82);
       color: var(--brown);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
+      border: 1px solid rgba(110, 74, 50, 0.18);
+      transition: 0.2s ease;
+    }
+
+    .program-row {
+      border-bottom: 1px solid rgba(110, 74, 50, 0.18);
+    }
+
+    .program-row:last-child { border-bottom: none; }
+
+    .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--sand);
+      transform: translateY(-50%);
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 17px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: rgba(167, 123, 88, 0.34);
     }
   </style>
 </head>
 
 <body>
-  <header class="sticky top-0 z-40 glass-nav">
-    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#hero" class="serif text-2xl font-semibold tracking-wide text-[#6b4f3b]">Martina & Jirka</a>
-      <ul class="hidden lg:flex gap-5 text-xs uppercase tracking-[0.16em] text-[#6b4f3b]">
-        <li><a class="hover:opacity-70" href="#info">Info</a></li>
-        <li><a class="hover:opacity-70" href="#program">Program</a></li>
-        <li><a class="hover:opacity-70" href="#rsvp">RSVP</a></li>
-        <li><a class="hover:opacity-70" href="#cesta">Doprava</a></li>
-        <li><a class="hover:opacity-70" href="#dary">Dary</a></li>
-        <li><a class="hover:opacity-70" href="#faq">FAQ</a></li>
-        <li><a class="hover:opacity-70" href="#galerie">Galerie</a></li>
+  <header class="sticky top-0 z-50 nav-bg">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <a href="#hero" class="serif text-2xl sm:text-3xl text-[#6e4a32] font-medium">Martina & Jirka</a>
+      <ul class="hidden md:flex gap-7 text-xs uppercase tracking-[0.16em] font-semibold text-[#2f241d]">
+        <li><a class="hover:text-[#6e4a32]" href="#info">Info</a></li>
+        <li><a class="hover:text-[#6e4a32]" href="#program">Program</a></li>
+        <li><a class="hover:text-[#6e4a32]" href="#doprava">Doprava</a></li>
+        <li><a class="hover:text-[#6e4a32]" href="#dary">Dary</a></li>
+        <li><a class="hover:text-[#6e4a32]" href="#dresscode">Dresscode</a></li>
+        <li><a class="hover:text-[#6e4a32]" href="#galerie">Galerie</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="hero" class="relative hero-img min-h-[88vh] flex items-center">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/28 to-[#332820]/70"></div>
-    <div class="relative max-w-5xl mx-auto px-4 py-24 sm:py-32 text-center text-white">
-      <p class="uppercase tracking-[0.35em] text-xs sm:text-sm mb-5 opacity-95">Zveme Vás na svatbu</p>
-      <h1 class="text-6xl sm:text-8xl font-semibold mb-5 drop-shadow leading-none">Martina & Jirka</h1>
-      <div class="w-24 h-px bg-white/70 mx-auto mb-6"></div>
-      <p class="text-lg sm:text-2xl opacity-95 tracking-wide">26. září 2026 • Statek na Stránce</p>
+  <section id="hero" class="relative hero-img min-h-[76vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#f2dfc8]/95 via-[#f2dfc8]/62 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#f7efe4] via-transparent to-transparent"></div>
 
-      <div class="mt-9 grid grid-flow-col gap-3 sm:gap-4 auto-cols-max justify-center text-center" id="countdown"></div>
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-8 py-20 w-full">
+      <div class="max-w-2xl text-center sm:text-left">
+        <p class="uppercase tracking-[0.32em] text-xs sm:text-sm font-bold mb-6 text-[#6e4a32]">Zveme Vás na svatbu</p>
+        <h1 class="text-6xl sm:text-8xl lg:text-9xl leading-none font-medium text-[#6e4a32] mb-7">Martina & Jirka</h1>
+        <p class="serif text-2xl sm:text-3xl text-[#6e4a32] mb-8">26. 9. 2026 &nbsp;•&nbsp; Statek na Stránce</p>
 
-      <div class="mt-10 flex flex-wrap gap-3 justify-center">
-        <a href="#rsvp" class="btn-light px-7 py-3 rounded-full transition duration-200">Potvrdit účast</a>
-        <a href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" class="btn-primary px-7 py-3 rounded-full transition duration-200">Navigace na parkoviště</a>
+        <div class="grid grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto sm:mx-0" id="countdown"></div>
+
+        <div class="mt-8 flex flex-wrap gap-4 justify-center sm:justify-start">
+          <a href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" class="btn-brown rounded-md px-8 py-4 text-sm uppercase tracking-[0.14em] font-bold">Mapa</a>
+          <a href="#info" class="btn-light rounded-md px-8 py-4 text-sm uppercase tracking-[0.14em] font-bold">Více informací ↓</a>
+        </div>
       </div>
     </div>
   </section>
 
   <main>
-    <section id="info" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Kde a kdy</h2>
-        <div class="ornament"></div>
+    <section id="info" class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+      <h2 class="section-title text-4xl sm:text-5xl text-center">Kde a kdy</h2>
+      <div class="ornament"></div>
 
-        <div class="grid sm:grid-cols-2 gap-6 mt-10">
-          <div class="mini-card p-6">
-            <p class="uppercase tracking-[0.22em] text-xs text-[#8c6c52] mb-4">Hlavní informace</p>
-            <p class="mb-3"><strong>Místo:</strong> Statek na Stránce</p>
-            <p class="mb-3"><strong>Adresa:</strong> Zápy 198</p>
-            <p class="mb-3"><strong>Datum:</strong> 26. září 2026</p>
-            <p class="mb-3"><strong>Čas obřadu:</strong> 14:00</p>
-            <p><strong>Dress code:</strong> Tento den je pro nás výjimečný, a proto Vás prosíme o společenské oblečení po celou dobu svatby.</p>
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
+        <div class="soft-card p-8 sm:p-10">
+          <div class="space-y-8">
+            <div>
+              <p class="uppercase tracking-[0.18em] text-sm font-bold mb-2">Místo</p>
+              <p class="serif text-2xl">Statek na Stránce</p>
+            </div>
+            <div>
+              <p class="uppercase tracking-[0.18em] text-sm font-bold mb-2">Adresa</p>
+              <p class="serif text-2xl">Zápy 198</p>
+            </div>
+            <div>
+              <p class="uppercase tracking-[0.18em] text-sm font-bold mb-2">Datum a čas obřadu</p>
+              <p class="serif text-2xl">26. 9. 2026 ve 14:00</p>
+            </div>
           </div>
+        </div>
 
-          <div class="mini-card p-6">
-            <p class="uppercase tracking-[0.22em] text-xs text-[#8c6c52] mb-4">Parkování & navigace</p>
-            <p class="mb-4">Prosíme všechny hosty, aby do navigace zadali přesně <strong>„Parkoviště Statek na Stránce“</strong>, nikoli pouze „Statek na Stránce“.</p>
-            <p class="mb-4">Parkování je zdarma a nachází se přímo u areálu.</p>
-            <a class="link-soft" href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Otevřít parkoviště v mapách</a>
-          </div>
+        <div class="soft-card p-8 sm:p-10">
+          <p class="uppercase tracking-[0.18em] text-sm font-bold mb-4">Parkování & navigace</p>
+          <p class="leading-8 mb-4">Prosíme, ponechte auta na <strong>„Parkovišti Statek na Stránce“</strong>.</p>
+          <p class="leading-8 mb-8">Apple Mapy i Google Mapy tuto adresu bez problému dohledají.</p>
+          <a href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" class="btn-brown inline-block rounded-md px-7 py-3 text-xs uppercase tracking-[0.14em] font-bold">Otevřít mapu</a>
         </div>
       </div>
     </section>
 
-    <section id="program" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Program dne</h2>
-        <div class="ornament"></div>
+    <section id="program" class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-title text-4xl sm:text-5xl text-center">Program dne</h2>
+          <div class="ornament"></div>
 
-        <ul class="space-y-3 mt-10">
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">11:30</div><div class="text-base sm:text-lg">Raut u nás doma, příprava ženicha</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">13:00</div><div class="text-base sm:text-lg">Odjezd na místo obřadu</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">13:30</div><div class="text-base sm:text-lg">Příjezd hostů na místo obřadu</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">14:00</div><div class="text-base sm:text-lg">Svatební obřad</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">14:30</div><div class="text-base sm:text-lg">Gratulace a focení</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">15:00</div><div class="text-base sm:text-lg">Přesun na hostinu, usazení hostů, raut, proslovy a přípitek</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">16:00</div><div class="text-base sm:text-lg">První novomanželský tanec</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">16:30</div><div class="text-base sm:text-lg">Krájení dortu</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">17:00</div><div class="text-base sm:text-lg">Focení novomanželů</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">18:00</div><div class="text-base sm:text-lg">Hry, volná zábava a házení kytice</div></li>
-          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">20:00</div><div class="text-base sm:text-lg">Soutěže, tanec, zábava a prskavkový tanec</div></li>
-        </ul>
-      </div>
-    </section>
+          <div class="relative mt-10 pl-12">
+            <div class="timeline-line"></div>
+            <div class="space-y-0">
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>11:30</strong><span>Přípravy a sraz u nás doma</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>12:30</strong><span>Odjezd</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>14:00</strong><span>Obřad</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>14:30</strong><span>Gratulace a focení</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>15:00</strong><span>Společné usazení, hostina a proslovy</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>16:00</strong><span>První tanec</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>16:30</strong><span>Krájení dortu</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>17:00</strong><span>Focení novomanželů</span></div>
+              <div class="program-row timeline-dot relative grid grid-cols-[80px_1fr] gap-4 py-3"><strong>18:00</strong><span>Hry a večerní zábava</span></div>
+            </div>
+          </div>
+        </div>
 
-    <section id="rsvp" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10 text-center">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-[#6b4f3b]">RSVP</h2>
-        <div class="ornament"></div>
-        <p class="mt-8 max-w-2xl mx-auto">Prosíme o vyplnění potvrzení účasti nejpozději do <strong>23. srpna 2026</strong>. Do formuláře můžete doplnit také alergie, dietní omezení a další důležité informace.</p>
-        <div class="mt-8">
-          <a class="inline-block btn-primary px-8 py-4 rounded-full transition duration-200" href="https://forms.gle/syRW1Lke6VbTeKEi9" target="_blank" rel="noreferrer">Vyplnit RSVP formulář</a>
+        <div class="hidden lg:block">
+          <img src="./gallery1.jpg" alt="Svatební detail" class="w-full h-[430px] object-cover rounded-2xl shadow-xl">
         </div>
       </div>
     </section>
 
-    <section id="cesta" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Doprava</h2>
-        <div class="ornament"></div>
+    <section id="doprava" class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="soft-card p-8 sm:p-10">
+          <h2 class="section-title text-4xl sm:text-5xl text-center">Doprava</h2>
+          <div class="ornament"></div>
 
-        <div class="grid sm:grid-cols-2 gap-4 mt-10">
-          <div class="mini-card p-6">
-            <h3 class="text-2xl font-semibold mb-2 text-[#6b4f3b]">Parkování</h3>
-            <p>Parkování je zdarma u statku. Do navigace prosím zadejte <strong>„Parkoviště Statek na Stránce“</strong>.</p>
+          <div class="mt-10 space-y-8">
+            <div>
+              <p class="uppercase tracking-[0.18em] text-sm font-bold mb-3">Parkování</p>
+              <p class="leading-8">Parkování je zdarma u statku. Prosíme, vyhledejte parkoviště označené jako <strong>„Parkoviště Statek na Stránce“</strong>.</p>
+            </div>
+            <div class="h-px bg-[#6e4a32]/15"></div>
+            <div>
+              <p class="uppercase tracking-[0.18em] text-sm font-bold mb-3">Svozy</p>
+              <p class="leading-8">Svozy budou zajištěny dle Vaší potřeby.</p>
+            </div>
           </div>
-          <div class="mini-card p-6">
-            <h3 class="text-2xl font-semibold mb-2 text-[#6b4f3b]">Svozy</h3>
-            <p>Svozy budou zajištěny dle Vaší potřeby. Prosíme, napište požadavek do RSVP formuláře.</p>
-          </div>
+        </div>
+
+        <div id="dresscode" class="soft-card p-6 sm:p-8">
+          <h2 class="section-title text-4xl sm:text-5xl text-center">Dresscode</h2>
+          <div class="ornament"></div>
+          <img src="./dresscode.png" alt="Dresscode" class="mt-8 w-full rounded-xl shadow-lg">
         </div>
       </div>
     </section>
 
-    <section id="dary" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10 text-center">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-[#6b4f3b]">Dary</h2>
+    <section id="dary" class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
+      <div class="soft-card p-8 sm:p-12 text-center">
+        <h2 class="section-title text-4xl sm:text-5xl">Dary</h2>
         <div class="ornament"></div>
-        <div class="mini-card p-7 mt-10 max-w-2xl mx-auto">
-          <p class="text-lg leading-8">Největším darem pro nás bude, že tento den prožijete s námi.</p>
-          <p class="text-lg leading-8 mt-3">Pokud byste nás přesto chtěli obdarovat, budeme vděční za finanční příspěvek do společného života.</p>
-          <p class="serif text-3xl text-[#6b4f3b] mt-7">Děkujeme.</p>
-        </div>
+        <p class="serif text-3xl sm:text-4xl text-[#6e4a32] max-w-3xl mx-auto mt-8 leading-snug">Největším darem pro nás bude, že tento den prožijete s námi.</p>
+        <p class="max-w-2xl mx-auto mt-5 leading-8">Pokud byste nás přesto chtěli obdarovat, budeme vděční za finanční příspěvek do společného života.</p>
       </div>
     </section>
 
-    <section id="faq" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Časté dotazy</h2>
-        <div class="ornament"></div>
-
-        <div class="grid sm:grid-cols-2 gap-4 mt-10">
-          <div class="mini-card p-6">
-            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Děti</p>
-            <p>Děti jsou vítané. Během odpoledne bude zajištěn <strong>animační program</strong> s osobou, která Vašim dětem nabídne zábavné aktivity.</p>
-          </div>
-          <div class="mini-card p-6">
-            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Dietní omezení</p>
-            <p>Napište je prosím do RSVP formuláře.</p>
-          </div>
-          <div class="mini-card p-6">
-            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Parkování</p>
-            <p>U areálu je parkoviště. Do navigace prosím zadejte přesně <strong>„Parkoviště Statek na Stránce“</strong>.</p>
-          </div>
-          <div class="mini-card p-6">
-            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Dress code</p>
-            <p>Tento den je pro nás výjimečný, a proto Vás prosíme o společenské oblečení po celou dobu svatby.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="galerie" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
-      <div class="section-card p-6 sm:p-10">
-        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Galerie</h2>
-        <div class="ornament"></div>
-        <div class="grid sm:grid-cols-3 gap-4 mt-10">
-          <img src="./gallery1.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
-          <img src="./gallery2.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
-          <img src="./gallery3.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
-        </div>
+    <section id="galerie" class="max-w-6xl mx-auto px-5 sm:px-8 py-10 sm:py-20">
+      <h2 class="section-title text-4xl sm:text-5xl text-center">Galerie</h2>
+      <div class="ornament"></div>
+      <div class="grid sm:grid-cols-3 gap-4 mt-10">
+        <img src="./gallery1.jpg" alt="Martina a Jirka" class="w-full h-72 object-cover rounded-2xl shadow-xl">
+        <img src="./gallery2.jpg" alt="Martina a Jirka" class="w-full h-72 object-cover rounded-2xl shadow-xl">
+        <img src="./gallery3.jpg" alt="Martina a Jirka" class="w-full h-72 object-cover rounded-2xl shadow-xl">
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-[#6b4f3b]/10 bg-[#332820] text-[#fffaf4]">
-    <div class="max-w-5xl mx-auto px-4 py-12 text-center">
-      <p class="serif text-4xl mb-3">Těšíme se na Vás!</p>
-      <p class="text-sm opacity-80">Martina & Jirka • 26. 9. 2026</p>
+  <footer class="bg-[#e7d4bd] border-t border-[#6e4a32]/10">
+    <div class="max-w-6xl mx-auto px-5 py-10 text-center">
+      <p class="uppercase tracking-[0.22em] text-[#6e4a32] font-medium mb-2">Těšíme se na Vás!</p>
+      <p class="serif text-2xl text-[#6e4a32] mb-1">♥</p>
+      <p class="text-xs text-[#6e4a32]/80">© 2025 Martina & Jirka</p>
     </div>
   </footer>
-
-  <a href="#rsvp" class="fixed right-4 bottom-4 sm:hidden px-5 py-3 rounded-full shadow-lg btn-primary">RSVP</a>
 
   <script>
     const target = new Date("2026-09-26T14:00:00").getTime();
@@ -304,15 +291,15 @@
       const seconds = s % 60;
       const items = [
         { label: 'dní', value: days },
-        { label: 'hod', value: hours },
-        { label: 'min', value: minutes },
-        { label: 's', value: seconds }
+        { label: 'hodin', value: hours },
+        { label: 'minut', value: minutes },
+        { label: 'sekund', value: seconds }
       ];
 
       document.getElementById('countdown').innerHTML = items.map(it => `
-        <div class="bg-[#fffaf4]/95 text-[#332820] rounded-3xl shadow-xl p-3 sm:p-4 min-w-[72px] sm:min-w-[86px] border border-white/50">
-          <div class="text-2xl sm:text-3xl font-semibold tabular-nums">${String(it.value).padStart(2, '0')}</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-[#6b4f3b]">${it.label}</div>
+        <div class="bg-[#fffaf2]/82 rounded-md p-4 sm:p-5 text-center shadow-lg border border-white/40">
+          <div class="serif text-3xl sm:text-4xl text-[#2f241d] font-semibold tabular-nums">${String(it.value).padStart(2, '0')}</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-[0.12em] font-semibold mt-1 text-[#2f241d]">${it.label}</div>
         </div>`).join('');
     }
 
