@@ -7,147 +7,293 @@
   <meta name="description" content="Pozvánka na svatbu Martina & Jirka — Statek na Stránce, Zápy 198, 26. 9. 2026 14:00.">
   <link rel="icon" href="favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>.hero-img{background-image:url('./hero.jpg');background-size:cover;background-position:center}</style>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    :root {
+      --cream: #f8f1e8;
+      --beige: #eadbcb;
+      --sand: #d4b89c;
+      --latte: #b99577;
+      --brown: #6b4f3b;
+      --dark: #332820;
+      --white-soft: #fffaf4;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212, 184, 156, 0.34), transparent 34%),
+        linear-gradient(180deg, #fbf6ef 0%, var(--cream) 45%, #efe1d3 100%);
+      color: var(--dark);
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .hero-img {
+      background-image: url('./hero.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .glass-nav {
+      background: rgba(255, 250, 244, 0.82);
+      border-bottom: 1px solid rgba(107, 79, 59, 0.13);
+      backdrop-filter: blur(14px);
+    }
+
+    .section-card {
+      background: rgba(255, 250, 244, 0.78);
+      border: 1px solid rgba(107, 79, 59, 0.10);
+      box-shadow: 0 18px 45px rgba(107, 79, 59, 0.10);
+      border-radius: 32px;
+    }
+
+    .mini-card {
+      background: rgba(255, 250, 244, 0.92);
+      border: 1px solid rgba(107, 79, 59, 0.10);
+      box-shadow: 0 12px 30px rgba(107, 79, 59, 0.08);
+      border-radius: 24px;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: white;
+      box-shadow: 0 10px 25px rgba(107, 79, 59, 0.24);
+    }
+
+    .btn-primary:hover,
+    .btn-light:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .btn-light {
+      background: rgba(255, 250, 244, 0.94);
+      color: var(--brown);
+      box-shadow: 0 10px 25px rgba(107, 79, 59, 0.16);
+    }
+
+    .ornament {
+      width: 72px;
+      height: 1px;
+      background: var(--latte);
+      margin: 14px auto 0;
+      position: relative;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--latte);
+    }
+
+    .ornament::before { left: -10px; }
+    .ornament::after { right: -10px; }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-time {
+      color: var(--brown);
+      background: #f3e7da;
+      border: 1px solid rgba(107, 79, 59, 0.12);
+    }
+
+    .link-soft {
+      color: var(--brown);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+  </style>
 </head>
-<body class="text-stone-800 bg-rose-50/40">
-  <header class="sticky top-0 z-40 bg-white/80 border-b backdrop-blur">
-    <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#hero" class="font-semibold tracking-wide">Martina & Jirka</a>
-      <ul class="hidden sm:flex gap-4 text-sm">
-        <li><a class="hover:underline" href="#info">Info</a></li>
-        <li><a class="hover:underline" href="#program">Program</a></li>
-        <li><a class="hover:underline" href="#rsvp">RSVP</a></li>
-        <li><a class="hover:underline" href="#cesta">Doprava</a></li>
-        <li><a class="hover:underline" href="#dary">Dary</a></li>
-        <li><a class="hover:underline" href="#faq">FAQ</a></li>
-        <li><a class="hover:underline" href="#galerie">Galerie</a></li>
+
+<body>
+  <header class="sticky top-0 z-40 glass-nav">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#hero" class="serif text-2xl font-semibold tracking-wide text-[#6b4f3b]">Martina & Jirka</a>
+      <ul class="hidden lg:flex gap-5 text-xs uppercase tracking-[0.16em] text-[#6b4f3b]">
+        <li><a class="hover:opacity-70" href="#info">Info</a></li>
+        <li><a class="hover:opacity-70" href="#program">Program</a></li>
+        <li><a class="hover:opacity-70" href="#rsvp">RSVP</a></li>
+        <li><a class="hover:opacity-70" href="#cesta">Doprava</a></li>
+        <li><a class="hover:opacity-70" href="#dary">Dary</a></li>
+        <li><a class="hover:opacity-70" href="#faq">FAQ</a></li>
+        <li><a class="hover:opacity-70" href="#galerie">Galerie</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="hero" class="relative hero-img">
-    <div class="absolute inset-0 bg-black/35"></div>
+  <section id="hero" class="relative hero-img min-h-[88vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/28 to-[#332820]/70"></div>
     <div class="relative max-w-5xl mx-auto px-4 py-24 sm:py-32 text-center text-white">
-      <p class="uppercase tracking-[0.3em] text-xs sm:text-sm mb-4">Zveme Vás na svatbu</p>
-      <h1 class="text-5xl sm:text-6xl font-semibold mb-4 drop-shadow">Martina & Jirka</h1>
-      <p class="text-lg sm:text-xl opacity-95">26. 9. 2026 • Statek na Stránce</p>
-      <div class="mt-8 grid grid-flow-col gap-4 auto-cols-max justify-center text-center" id="countdown"></div>
+      <p class="uppercase tracking-[0.35em] text-xs sm:text-sm mb-5 opacity-95">Zveme Vás na svatbu</p>
+      <h1 class="text-6xl sm:text-8xl font-semibold mb-5 drop-shadow leading-none">Martina & Jirka</h1>
+      <div class="w-24 h-px bg-white/70 mx-auto mb-6"></div>
+      <p class="text-lg sm:text-2xl opacity-95 tracking-wide">26. září 2026 • Statek na Stránce</p>
+
+      <div class="mt-9 grid grid-flow-col gap-3 sm:gap-4 auto-cols-max justify-center text-center" id="countdown"></div>
+
       <div class="mt-10 flex flex-wrap gap-3 justify-center">
-        <a href="#rsvp" class="px-6 py-3 rounded-2xl shadow bg-white text-stone-900 hover:opacity-90">Potvrdit účast (RSVP)</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=Statek%20na%20Str%C3%A1nce%20Z%C3%A1py%20198" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-2xl shadow bg-stone-900 text-white hover:opacity-90">Mapa</a>
+        <a href="#rsvp" class="btn-light px-7 py-3 rounded-full transition duration-200">Potvrdit účast</a>
+        <a href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" class="btn-primary px-7 py-3 rounded-full transition duration-200">Navigace na parkoviště</a>
       </div>
     </div>
   </section>
 
   <main>
-    <section id="info" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Kde a kdy</h2>
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div>
-          <p class="mb-2"><strong>Místo:</strong> Statek na Stránce</p>
-          <p class="mb-2"><strong>Adresa:</strong> Zápy 198</p>
-          <p class="mb-2"><strong>Datum a čas obřadu:</strong> 26. 9. 2026 14:00</p>
-          <p class="mb-2"><strong>Dress code:</strong> Náš den je pro nás jedinečný, a proto Vás prosíme o slavnostní ladění oblečení až do samotného konce.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-          <p class="text-sm text-stone-500 mb-2">Parkování &amp; navigace</p>
-          <p class="mb-2">Prosíme, ponechte auta na <strong>„Parkovišti Statek na Stránce“</strong>. Apple Mapy i Google Mapy tuto adresu bez problému dohledají.</p>
-          <a class="underline break-all" href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D</a>
+    <section id="info" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Kde a kdy</h2>
+        <div class="ornament"></div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-10">
+          <div class="mini-card p-6">
+            <p class="uppercase tracking-[0.22em] text-xs text-[#8c6c52] mb-4">Hlavní informace</p>
+            <p class="mb-3"><strong>Místo:</strong> Statek na Stránce</p>
+            <p class="mb-3"><strong>Adresa:</strong> Zápy 198</p>
+            <p class="mb-3"><strong>Datum:</strong> 26. září 2026</p>
+            <p class="mb-3"><strong>Čas obřadu:</strong> 14:00</p>
+            <p><strong>Dress code:</strong> Tento den je pro nás výjimečný, a proto Vás prosíme o společenské oblečení po celou dobu svatby.</p>
+          </div>
+
+          <div class="mini-card p-6">
+            <p class="uppercase tracking-[0.22em] text-xs text-[#8c6c52] mb-4">Parkování & navigace</p>
+            <p class="mb-4">Prosíme všechny hosty, aby do navigace zadali přesně <strong>„Parkoviště Statek na Stránce“</strong>, nikoli pouze „Statek na Stránce“.</p>
+            <p class="mb-4">Parkování je zdarma a nachází se přímo u areálu.</p>
+            <a class="link-soft" href="https://www.google.com/maps/place/Parkovi%C5%A1t%C4%9B+Statek+na+str%C3%A1nce/@50.1626328,14.6828725,17z/data=!4m14!1m7!3m6!1s0x470bf3dbc678d4d1:0x72674a7b2b67a7b7!2sStatek+na+Str%C3%A1nce!8m2!3d50.1626328!4d14.6828725!16s%2Fg%2F11w3hd19fj!3m5!1s0x470bf300144baabb:0x3568b0d385983c87!8m2!3d50.1619983!4d14.6818583!16s%2Fg%2F11w4l17jgm?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Otevřít parkoviště v mapách</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="program" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Program dne</h2>
-      <ul class="space-y-3">
-        <li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">11:30</div><div class="text-lg">Raut u nás doma, příprava ženicha</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">13:00</div><div class="text-lg">Odjezd na místo obřadu</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">13:30</div><div class="text-lg">Příjezd hostů na místo obřadu</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">14:00</div><div class="text-lg">Svatební obřad</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">14:30</div><div class="text-lg">Gratulace, focení</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">15:00</div><div class="text-lg">Přesun na hostinu, usazení hostů, raut, proslovy, přípitek</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">16:00</div><div class="text-lg">První novomanželský tanec</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">16:30</div><div class="text-lg">Krájení dortu</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">17:00</div><div class="text-lg">Focení novomanželů</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">18:00</div><div class="text-lg">Hry, volná zábava, házení kytice</div></li>
-<li class="flex items-center gap-4 bg-white rounded-2xl shadow p-4"><div class="text-xl font-mono min-w-[76px]">20:00</div><div class="text-lg">Soutěže, tanec, zábava, prskavkový tanec</div></li>
-      </ul>
-    </section>
+    <section id="program" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Program dne</h2>
+        <div class="ornament"></div>
 
-    <section id="rsvp" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">RSVP</h2>
-      <p>Prosíme o vyplnění potvrzení účasti nejpozději do <strong>23. srpna 2026</strong>. Pokud by nefungoval formulář, napište nám.</p>
-      <div class="mt-6 bg-white rounded-2xl shadow p-6 text-center">
-        <a class="inline-block px-6 py-3 rounded-2xl bg-stone-900 text-white hover:opacity-90" href="https://forms.gle/syRW1Lke6VbTeKEi9" target="_blank" rel="noreferrer">Vyplnit RSVP formulář</a>
-        <p class="text-sm text-stone-500 mt-2">https://forms.gle/syRW1Lke6VbTeKEi9</p>
+        <ul class="space-y-3 mt-10">
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">11:30</div><div class="text-base sm:text-lg">Raut u nás doma, příprava ženicha</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">13:00</div><div class="text-base sm:text-lg">Odjezd na místo obřadu</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">13:30</div><div class="text-base sm:text-lg">Příjezd hostů na místo obřadu</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">14:00</div><div class="text-base sm:text-lg">Svatební obřad</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">14:30</div><div class="text-base sm:text-lg">Gratulace a focení</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">15:00</div><div class="text-base sm:text-lg">Přesun na hostinu, usazení hostů, raut, proslovy a přípitek</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">16:00</div><div class="text-base sm:text-lg">První novomanželský tanec</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">16:30</div><div class="text-base sm:text-lg">Krájení dortu</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">17:00</div><div class="text-base sm:text-lg">Focení novomanželů</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">18:00</div><div class="text-base sm:text-lg">Hry, volná zábava a házení kytice</div></li>
+          <li class="timeline-item flex items-center gap-4 mini-card p-4"><div class="timeline-time text-lg font-semibold min-w-[78px] text-center rounded-full px-3 py-2">20:00</div><div class="text-base sm:text-lg">Soutěže, tanec, zábava a prskavkový tanec</div></li>
+        </ul>
       </div>
     </section>
 
-    <section id="cesta" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Doprava</h2>
-      <div class="space-y-4">
-        <div class="bg-white rounded-2xl shadow p-4">
-          <h3 class="font-semibold mb-1">Parkování</h3>
-          <p>Parkování je zdarma u statku. Prosíme, aby jste vyhledali parkoviště označené jako <strong>„Parkoviště Statek na Stránce“</strong>.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-          <h3 class="font-semibold mb-1">Svozy</h3>
-          <p>Svozy budou zajištěny dle vaší potřeby<strong></strong>.</p>
+    <section id="rsvp" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10 text-center">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#6b4f3b]">RSVP</h2>
+        <div class="ornament"></div>
+        <p class="mt-8 max-w-2xl mx-auto">Prosíme o vyplnění potvrzení účasti nejpozději do <strong>23. srpna 2026</strong>. Do formuláře můžete doplnit také alergie, dietní omezení a další důležité informace.</p>
+        <div class="mt-8">
+          <a class="inline-block btn-primary px-8 py-4 rounded-full transition duration-200" href="https://forms.gle/syRW1Lke6VbTeKEi9" target="_blank" rel="noreferrer">Vyplnit RSVP formulář</a>
         </div>
       </div>
     </section>
 
-    <section id="dary" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Dary</h2>
-       </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-      <p>Kdo chce darem potěšit,obálkou to může vyřešit<strong></strong></p>
-    </section>
+    <section id="cesta" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Doprava</h2>
+        <div class="ornament"></div>
 
-    <section id="faq" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Časté dotazy</h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div class="bg-white rounded-2xl shadow p-4">
-          <p class="font-semibold mb-1">Děti</p>
-          <p>Děti jsou vítané. Během odpoledne bude zajištěn <strong>animační program</strong> s osobou, která vašim dětem nabídne zábavné aktivity.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-          <p class="font-semibold mb-1">Dietní omezení</p>
-          <p>Napište je, prosím, do RSVP formuláře.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-          <p class="font-semibold mb-1">Parkování</p>
-          <p>U areálu je parkoviště. Sledujte směrovky „Svatba“ a pokyny koordinátorů.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow p-4">
-          <p class="font-semibold mb-1">Dress code</p>
-          <p>Náš den je pro nás jedinečný, a proto Vás prosíme o slavnostní ladění oblečení až do samotného konce.</p>
+        <div class="grid sm:grid-cols-2 gap-4 mt-10">
+          <div class="mini-card p-6">
+            <h3 class="text-2xl font-semibold mb-2 text-[#6b4f3b]">Parkování</h3>
+            <p>Parkování je zdarma u statku. Do navigace prosím zadejte <strong>„Parkoviště Statek na Stránce“</strong>.</p>
+          </div>
+          <div class="mini-card p-6">
+            <h3 class="text-2xl font-semibold mb-2 text-[#6b4f3b]">Svozy</h3>
+            <p>Svozy budou zajištěny dle Vaší potřeby. Prosíme, napište požadavek do RSVP formuláře.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="galerie" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl sm:text-4xl font-semibold mb-6 text-center">Galerie</h2>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <img src="./gallery1.jpg" alt="Martina a Jirka" class="w-full h-56 object-cover rounded-2xl shadow">
-<img src="./gallery2.jpg" alt="Martina a Jirka" class="w-full h-56 object-cover rounded-2xl shadow">
-<img src="./gallery3.jpg" alt="Martina a Jirka" class="w-full h-56 object-cover rounded-2xl shadow">
+    <section id="dary" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10 text-center">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-[#6b4f3b]">Dary</h2>
+        <div class="ornament"></div>
+        <div class="mini-card p-7 mt-10 max-w-2xl mx-auto">
+          <p class="text-lg leading-8">Největším darem pro nás bude, že tento den prožijete s námi.</p>
+          <p class="text-lg leading-8 mt-3">Pokud byste nás přesto chtěli obdarovat, budeme vděční za finanční příspěvek do společného života.</p>
+          <p class="serif text-3xl text-[#6b4f3b] mt-7">Děkujeme.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Časté dotazy</h2>
+        <div class="ornament"></div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-10">
+          <div class="mini-card p-6">
+            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Děti</p>
+            <p>Děti jsou vítané. Během odpoledne bude zajištěn <strong>animační program</strong> s osobou, která Vašim dětem nabídne zábavné aktivity.</p>
+          </div>
+          <div class="mini-card p-6">
+            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Dietní omezení</p>
+            <p>Napište je prosím do RSVP formuláře.</p>
+          </div>
+          <div class="mini-card p-6">
+            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Parkování</p>
+            <p>U areálu je parkoviště. Do navigace prosím zadejte přesně <strong>„Parkoviště Statek na Stránce“</strong>.</p>
+          </div>
+          <div class="mini-card p-6">
+            <p class="text-2xl serif font-semibold mb-2 text-[#6b4f3b]">Dress code</p>
+            <p>Tento den je pro nás výjimečný, a proto Vás prosíme o společenské oblečení po celou dobu svatby.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerie" class="max-w-5xl mx-auto px-4 py-16 sm:py-20">
+      <div class="section-card p-6 sm:p-10">
+        <h2 class="text-4xl sm:text-5xl font-semibold text-center text-[#6b4f3b]">Galerie</h2>
+        <div class="ornament"></div>
+        <div class="grid sm:grid-cols-3 gap-4 mt-10">
+          <img src="./gallery1.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
+          <img src="./gallery2.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
+          <img src="./gallery3.jpg" alt="Martina a Jirka" class="w-full h-64 object-cover rounded-[28px] shadow-lg">
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t">
-    <div class="max-w-5xl mx-auto px-4 py-10 text-center">
-      <p class="mb-2">Těšíme se na Vás!</p>
-      <p class="text-xs text-stone-500">© 2025 Martina & Jirka</p>
-      <p class="text-[10px] text-stone-400 mt-2">GDPR tip: do RSVP neshromažďujte citlivé údaje; uvádějte pouze nezbytné informace a dobu uchování.</p>
+  <footer class="border-t border-[#6b4f3b]/10 bg-[#332820] text-[#fffaf4]">
+    <div class="max-w-5xl mx-auto px-4 py-12 text-center">
+      <p class="serif text-4xl mb-3">Těšíme se na Vás!</p>
+      <p class="text-sm opacity-80">Martina & Jirka • 26. 9. 2026</p>
     </div>
   </footer>
 
-  <a href="#rsvp" class="fixed right-4 bottom-4 sm:hidden px-5 py-3 rounded-full shadow-lg bg-stone-900 text-white">RSVP</a>
+  <a href="#rsvp" class="fixed right-4 bottom-4 sm:hidden px-5 py-3 rounded-full shadow-lg btn-primary">RSVP</a>
 
   <script>
     const target = new Date("2026-09-26T14:00:00").getTime();
+
     function updateCountdown() {
       const now = Date.now();
       const diff = Math.max(0, target - now);
@@ -156,14 +302,22 @@
       const hours = Math.floor((s % 86400) / 3600);
       const minutes = Math.floor((s % 3600) / 60);
       const seconds = s % 60;
-      const items = [{label:'dní',value:days},{label:'hod',value:hours},{label:'min',value:minutes},{label:'s',value:seconds}];
+      const items = [
+        { label: 'dní', value: days },
+        { label: 'hod', value: hours },
+        { label: 'min', value: minutes },
+        { label: 's', value: seconds }
+      ];
+
       document.getElementById('countdown').innerHTML = items.map(it => `
-        <div class="bg-white/95 rounded-2xl shadow p-4 min-w-[84px]">
-          <div class="text-3xl font-semibold tabular-nums">${String(it.value).padStart(2,'0')}</div>
-          <div class="text-xs uppercase tracking-widest text-stone-500">${it.label}</div>
+        <div class="bg-[#fffaf4]/95 text-[#332820] rounded-3xl shadow-xl p-3 sm:p-4 min-w-[72px] sm:min-w-[86px] border border-white/50">
+          <div class="text-2xl sm:text-3xl font-semibold tabular-nums">${String(it.value).padStart(2, '0')}</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-[#6b4f3b]">${it.label}</div>
         </div>`).join('');
     }
-    updateCountdown(); setInterval(updateCountdown, 1000);
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
